@@ -12,7 +12,7 @@ class cube:
 		self.y = y;
 		self.mass = mass;
 		self.vel = vel;
-		self.clack = pygame.mixer.Sound('clack.wav');
+		self.clack = pygame.mixer.Sound('clack.wav');		#must have a clack.wav in your code folder; 
 		self.clack.set_volume(0.1)
 		self.count = 0;
 
@@ -29,13 +29,13 @@ class cube:
 			print(int(self.count));			
 			initv1 = self.vel;
 			initv2 = other.vel;
-			self.vel = ( ((self.mass - other.mass) / (self.mass + other.mass))*initv1 + ((2*other.mass)/ (self.mass + other.mass))*initv2);
+			self.vel = ( ((self.mass - other.mass) / (self.mass + other.mass))*initv1 + ((2*other.mass)/ (self.mass + other.mass))*initv2);		#equation of conserveing momentum for both cubes applied.
 			other.vel = ( ( (2*self.mass) / (self.mass + other.mass) )*initv1 + ((other.mass - self.mass)/(self.mass + other.mass))* initv2);			
 
 	def wall(self):
-		if self.x < 100:
-			self.vel = self.vel * -1;
-			pygame.mixer.Sound.play(self.clack);
+		if self.x < 100:					# In a perfect elastic collision with the wall, the velocity of
+			self.vel = self.vel * -1;			# the cube would simply be reversed since the wall will not
+			pygame.mixer.Sound.play(self.clack);		# gain any velocity.
 			self.count+=1;
 			print(int(self.count));
 
@@ -46,10 +46,10 @@ big_cube = cube((0,200,160), 70,500,200,  1  ,-0.08);
 small_cube = cube((0,160,200), 40,250,230,1,0);
 running = True;
 
-while running:
+while running:				#running loop of game
 
 	for event in pygame.event.get():
-		if event.type == pygame.QUIT:
+		if event.type == pygame.QUIT:		#being able to close the game
 			running = False;
 
 
