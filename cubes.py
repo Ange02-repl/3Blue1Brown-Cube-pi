@@ -42,10 +42,10 @@ class cube:
 
 
 
-big_cube = cube((0,200,160), 70,500,200,  1  ,-0.08);
-small_cube = cube((0,160,200), 40,250,230,1,0);
-running = True;
-
+big_cube =   cube((0,200,160), 70, 500, 200, 1,-0.08);			# Change the 5th parameter to change the mass of the big cube.
+small_cube = cube((0,160,200), 40, 250, 230, 1,0);			# To get the digits of pi, the mass of the cube should a power of 100
+running = True;								#i.e 100^0 = 1; 100^1 = 100; 100^2 = 10000 etc.
+									#The power +1 == digits of pi you get
 while running:				#running loop of game
 
 	for event in pygame.event.get():
